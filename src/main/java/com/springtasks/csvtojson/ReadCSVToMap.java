@@ -9,11 +9,11 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-public class ReadCSVToMap {
+public class ReadCSVToMap{
 	
-	static CSVReader reader;
+	private CSVReader reader;
 	
-	public void readCSVFile(File file) throws CsvValidationException, IOException {
+	public List<HashMap<String,String>> readCSVFile(File file) throws CsvValidationException, IOException {
 		reader = new CSVReader(new FileReader(file));
 		String[] nextLine;
 		nextLine = reader.readNext();
@@ -37,7 +37,8 @@ public class ReadCSVToMap {
 	        		 hashMaps.add(map);
 	        }
 	    }
-		System.out.println(hashMaps);	
+		//System.out.println(hashMaps);
+		return hashMaps;
 	}
 	
 
